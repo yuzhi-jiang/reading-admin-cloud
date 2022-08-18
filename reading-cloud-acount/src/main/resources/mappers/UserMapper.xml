@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yefeng.adminaccount.dao.AccountMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zealon.readingcloud.common.pojo.account.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+        <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+        <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+        <result column="head_img_url" jdbcType="VARCHAR" property="headImgUrl" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id, uuid, user_pwd, login_name, nick_name, phone_number, head_img_url, create_time,
+      update_time
+    </sql>
+
+    <insert id="insertUser" parameterType="cn.zealon.readingcloud.common.pojo.account.User">
+      insert into user (id, uuid, user_pwd,
+        login_name, nick_name, phone_number,
+        head_img_url, create_time, update_time
+        )
+      values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR},
+        #{loginName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR},
+        #{headImgUrl,jdbcType=VARCHAR}, now(), now()
+        )
+    </insert>
+
+</mapper>

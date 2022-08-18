@@ -1,0 +1,35 @@
+server:
+  port: 8011
+  servlet:
+    context-path: /accountApi
+spring:
+  application:
+    name: light-reading-admin-cloud-account
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        refresh: true
+        namespace: b4e4fccd-60e3-4f98-b48e-b209b05ab347
+        enabled: true
+      # 注册中心
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: b4e4fccd-60e3-4f98-b48e-b209b05ab347
+
+#    datasource:
+##      多数据源
+##      primary:
+#        url: jdbc:mysql://localhost:3306/reading-cloud-account
+#        username: root
+#        password: root
+#        driver-class-name: com.mysql.jdbc.Driver
+#      secondary:
+#        url: jdbc:mysql://localhost:3306/reading-cloud-account
+#        username: root
+#        password: root
+#        driver-class-name: com.mysql.jdbc.Driver
